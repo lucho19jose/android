@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#667eea"
+    android:background="#ffffff"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -61,33 +61,33 @@
         android:id="@+id/buSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:onClick="register"
         android:text="@string/buRegistrar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etECivil" />
-
-    <Button
-        android:id="@+id/buShow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:onClick="show"
-        android:text="@string/buMostrar"
-        app:layout_constraintStart_toEndOf="@+id/buSave"
-        app:layout_constraintTop_toBottomOf="@+id/etECivil" />
+        app:layout_constraintTop_toBottomOf="@+id/spEcivil" />
 
     <TextView
         android:id="@+id/tvPerson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="@string/tvPersona"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buSave" />
+
+    <Button
+        android:id="@+id/buShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:onClick="show"
+        android:text="@string/buMostrar"
+        app:layout_constraintStart_toEndOf="@+id/buSave"
+        app:layout_constraintTop_toBottomOf="@+id/spEcivil" />
 
     <EditText
         android:id="@+id/etDni"
@@ -127,17 +127,6 @@
         app:layout_constraintStart_toStartOf="@+id/etName"
         app:layout_constraintTop_toBottomOf="@+id/etName" />
 
-    <EditText
-        android:id="@+id/etSex"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="@string/etDatos"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/etLastName"
-        app:layout_constraintTop_toBottomOf="@+id/etLastName" />
-
     <TextView
         android:id="@+id/tvECivil"
         android:layout_width="wrap_content"
@@ -146,16 +135,38 @@
         android:layout_marginTop="8dp"
         android:text="@string/tvECivil"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etSex" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
 
-    <EditText
-        android:id="@+id/etECivil"
+    <RadioGroup
+        android:id="@+id/radioGroup2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="@string/etDatos"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/etSex"
-        app:layout_constraintTop_toBottomOf="@+id/etSex" />
+        app:layout_constraintStart_toEndOf="@+id/tvSexo"
+        app:layout_constraintTop_toBottomOf="@+id/etLastName">
+
+        <RadioButton
+            android:id="@+id/rbMasculino"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:checked="true"
+            android:text="@string/rbMasculino" />
+
+        <RadioButton
+            android:id="@+id/rbFemenino"
+            android:layout_width="110dp"
+            android:layout_height="37dp"
+            android:text="@string/rbFemenino" />
+    </RadioGroup>
+
+    <Spinner
+        android:id="@+id/spEcivil"
+        android:layout_width="328dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/tvECivil"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

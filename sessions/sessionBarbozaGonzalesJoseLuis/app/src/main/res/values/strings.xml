@@ -3,8 +3,10 @@
     <string name="tvDni">DNI:</string>
     <string name="tvApellido">Apellidos:</string>
     <string name="tvNombre">Nombre:</string>
-    <string name="tvSexo">Sexo:</string>
+    <string name="rbMasculino">Masculino</string>
+    <string name="rbFemenino">Femenino</string>
     <string name="tvECivil">E.Civil:</string>
+    <string name="tvSexo">Sexo:</string>
     <string name="etDatos">Ingrese Aqui</string>
     <string name="buRegistrar">Registrar</string>
     <string name="buMostrar">Show</string>

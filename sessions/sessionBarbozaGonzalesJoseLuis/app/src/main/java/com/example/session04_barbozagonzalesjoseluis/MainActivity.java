@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,7 +17,9 @@ import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity {
     //...declare atributes
-    private EditText aDni, aName, aLastName, aSex, aCivilState;
+    private EditText aDni, aName, aLastName;
+    private RadioButton aMasculino, aFemenino;
+    private Spinner aCivilState;
     private TextView aShow;
     private cPerson aP;
     ArrayList<cPerson> personlist = new ArrayList<cPerson>();
@@ -26,20 +31,37 @@ public class MainActivity extends AppCompatActivity {
         aDni = findViewById(R.id.etDni);
         aName = findViewById(R.id.etName);
         aLastName = findViewById(R.id.etLastName);
-        aSex = findViewById(R.id.etSex);
-        aCivilState = findViewById(R.id.etECivil);
+        aMasculino = findViewById(R.id.rbMasculino);
+        aFemenino = findViewById(R.id.rbFemenino);
+        aCivilState = findViewById(R.id.spEcivil);
         aShow = findViewById(R.id.tvPerson);
         //... build the class
         aP = new cPerson();
-
+        //... load spinner
+        loadObjects();
     }
     //... private methods
     public void cleanWindow(){
         //aDni.setText("");
         aName.setText("");
         aLastName.setText("");
-        aSex.setText("");
-        aCivilState.setText("");
+        aMasculino.setChecked(true);
+        aCivilState.setSelection(0);
+    }
+    private void loadObjects(){
+        String []eCivil = new String[]{"Soltero (a)", "Casado (a)", "Viudo (a)", "Divorciado (a)"};
+        ArrayAdapter<String> ec= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, eCivil);
+        aCivilState.setAdapter(ec);
+    }
+    private int Ecivil(String pEcivil){
+        int ec= 0;
+        if(pEcivil.equals("Casado (a)"))
+            ec= 1;
+        if(pEcivil.equals("Viudo (a)"))
+            ec= 2;
+        if(pEcivil.equals("Divorciado (a)"))
+            ec= 3;
+        return ec;
     }
     //... register
     public void register(View view){
@@ -47,8 +69,11 @@ public class MainActivity extends AppCompatActivity {
             aP.mDni(aDni.getText().toString());
             aP.mName(aName.getText().toString());
             aP.mLastName(aLastName.getText().toString());
-            aP.mSex(aSex.getText().toString());
-            aP.mCivilState(aCivilState.getText().toString());
+            if(aMasculino.isChecked())
+                aP.mSex(1);
+            if(aFemenino.isChecked())
+                aP.mSex(0);
+            aP.mCivilState(Ecivil(aCivilState.getSelectedItem().toString()));
             //... adding person list
             personlist.add(aP);
             //... show success
@@ -69,10 +94,20 @@ public class MainActivity extends AppCompatActivity {
             person =person + "Last Name: " +aP.sLastName() +"\n";
             person =person + "Sex: " +aP.sSex() +"\n";
             person =person + "Civil State: " +aP.sCivilState() +"\n";
+            //...show in the textfields
+            aDni.setText(aP.sDni());
+            aName.setText(aP.sName());
+            aLastName.setText(aP.sLastName());
+            if(aP.sSex()==1)
+                aMasculino.setChecked(true);
+            if(aP.sSex()==0)
+                aFemenino.setChecked(true);
+            aCivilState.setSelection(aP.sCivilState());
             aShow.setText(person);
         }else{
             aDni.setError("este dni no esta registrado");
             aShow.setText("No exist that DNI");
+            cleanWindow();
         }
     }
     //... validations
@@ -83,19 +118,11 @@ public class MainActivity extends AppCompatActivity {
             atribute = false;
         }
         if(aName.getText().toString().isEmpty()){
-            aName.setError("este campo no puede quedar vacio o numerico");
+            aName.setError("este campo no puede quedar vacio");
             atribute = false;
         }
         if(aLastName.getText().toString().isEmpty()){
             aLastName.setError("este campo no puede quedar vacio");
-            atribute = false;
-        }
-        if(aSex.getText().toString().isEmpty()){
-            aSex.setError("este campo no puede quedar vacio");
-            atribute = false;
-        }
-        if(aCivilState.getText().toString().isEmpty()){
-            aCivilState.setError("este campo no puede quedar vacio");
             atribute = false;
         }
         return atribute;
@@ -110,8 +137,4 @@ public class MainActivity extends AppCompatActivity {
         //Toast.makeText(this, "success...", Toast.LENGTH_LONG).show();
         return ret;
     }
-    public boolean isnumeric(String data){
-        return data.matches("[a-zA-Z]*");
-    }
-
 }

@@ -2,15 +2,16 @@ package com.example.session04_barbozagonzalesjoseluis;
 
 public class cPerson {
     //... atributes
-    private String aDni, aName, aLastName, aSex,aCivilState;
+    private String aDni, aName, aLastName;
+    private int aSex,aCivilState;
     //...builders
     protected  cPerson()
     {
         aDni = "";
         aName = "";
         aLastName = "";
-        aSex = "";
-        aCivilState = "";
+        aSex = -1;
+        aCivilState = -1;
     }
     //...modifiers
     public void mDni(String pDni)
@@ -24,10 +25,10 @@ public class cPerson {
     public void mLastName(String pLastName)
     {
         aLastName = pLastName;
-    }public void mSex(String pSex)
+    }public void mSex(int pSex)
     {
         aSex = pSex;
-    }public void mCivilState(String pCivilState)
+    }public void mCivilState(int pCivilState)
     {
         aCivilState = pCivilState;
     }
@@ -35,6 +36,6 @@ public class cPerson {
     public String sDni(){ return aDni; }
     public String sName(){ return aName; }
     public String sLastName(){ return aLastName; }
-    public String sSex(){ return aSex; }
-    public String sCivilState(){ return aCivilState; }
+    public int sSex(){ return aSex; }
+    public int sCivilState(){ return aCivilState; }
 }
