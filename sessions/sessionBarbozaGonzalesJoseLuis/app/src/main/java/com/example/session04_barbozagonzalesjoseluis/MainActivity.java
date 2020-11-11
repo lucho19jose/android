@@ -67,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
     public void register(View view){
         if (validate()){
             aP.mDni(aDni.getText().toString());
-            aP.mName(aName.getText().toString());
-            aP.mLastName(aLastName.getText().toString());
+            aP.mName(capitalizeWord(aName.getText().toString()));
+            aP.mLastName(capitalizeWord(aLastName.getText().toString()));
             if(aMasculino.isChecked())
                 aP.mSex(1);
             if(aFemenino.isChecked())
@@ -137,4 +137,15 @@ public class MainActivity extends AppCompatActivity {
         //Toast.makeText(this, "success...", Toast.LENGTH_LONG).show();
         return ret;
     }
+    public static String capitalizeWord(String str){
+        String words[]=str.split("\\s");
+        String capitalizeWord="";
+        for(String w:words){
+            String first=w.substring(0,1);
+            String afterfirst=w.substring(1);
+            capitalizeWord+=first.toUpperCase()+afterfirst+" ";
+        }
+        return capitalizeWord.trim();
+    }
+
 }

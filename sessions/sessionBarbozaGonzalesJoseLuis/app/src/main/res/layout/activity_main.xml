@@ -108,10 +108,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:digits=" ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz áéíóú"
         android:ems="10"
-        android:digits=" ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
         android:hint="@string/etDatos"
         android:inputType="textPersonName"
+        android:maxLength="30"
         app:layout_constraintStart_toStartOf="@+id/etDni"
         app:layout_constraintTop_toBottomOf="@+id/etDni" />
 
@@ -120,10 +121,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:digits=" ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz áéíóú"
         android:ems="10"
-        android:digits=" ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
         android:hint="@string/etDatos"
         android:inputType="textPersonName"
+        android:maxLength="30"
         app:layout_constraintStart_toStartOf="@+id/etName"
         app:layout_constraintTop_toBottomOf="@+id/etName" />
 
