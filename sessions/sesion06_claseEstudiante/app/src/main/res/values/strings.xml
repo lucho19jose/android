@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Persona</string>
+    <string name="tvTitulo">Registro Persona</string>
+    <string name="tvDNI">DNI: </string>
+    <string name="tvApellidos">Apellidos: </string>
+    <string name="tvNombres">Nombres: </string>
+    <string name="tvSexo">Sexo: </string>
+    <string name="tvEcivil">Estado civil: </string>
+    <string name="rbMasculino">Masculino</string>
+    <string name="rbFemenino">Femenino</string>
+    <string name="etDato">Ingrese aquí</string>
+    <string name="buRegistrar">Registrar</string>
+    <string name="buMostrar">Mostrar</string>
+    <string name="tvMostrar">Persona:</string>
+    <string name="tvTituloE">Registro Estudiante</string>
+    <string name="tvCodigo">Código: </string>
+    <string name="tvEprofesional">E. profesional: </string>
+    <string name="tvSingreso">S. ingreso: </string>
+</resources>
