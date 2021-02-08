@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">canvas</string>
+    <string name="tvTitulo">Figura Geométrica</string>
+    <string name="etPunto1x">Ax</string>
+    <string name="etPunto1y">Ay</string>
+    <string name="etPunto2x">Bx</string>
+    <string name="etPunto2y">By</string>
+    <string name="etPunto3x">Cx</string>
+    <string name="etPunto3y">Cy</string>
+    <string name="etTexto">Texto</string>
+    <string name="buDibujar">Dibujar</string>
+    <string name="buAnterior">Anterior</string>
+    <string name="buSalir">Salir</string>
+</resources>

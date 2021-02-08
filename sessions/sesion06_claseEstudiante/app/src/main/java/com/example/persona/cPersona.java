@@ -6,7 +6,7 @@ public class cPersona {
     private int aSexo, aEcivil;
     //... constructores
     protected cPersona(){ aDNI= ""; aApellidos= ""; aNombres= ""; aSexo= -1; aEcivil= -1; }
-    //... modificadores
+    //... modifiers
     public void mDNI(String pDNI){ aDNI= pDNI; }
     public void mApellidos(String pApellidos){ aApellidos= pApellidos; }
     public void mNombres(String pNombres){ aNombres= pNombres; }
